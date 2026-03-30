@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pep8-mcp-server"
+version = "0.1.0"
+description = "MCP server exposing Python code quality tools (flake8, mypy, mccabe, vulture)"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "flake8>=7.0.0",
+    "mypy>=1.0.0",
+    "vulture>=2.10",
+]
+
+[project.scripts]
+pep8-mcp-server = "pep8_mcp_server.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pep8_mcp_server"]
